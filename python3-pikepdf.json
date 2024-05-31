@@ -29,8 +29,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/qpdf/qpdf/releases/download/v11.6.1/qpdf-11.6.1.tar.gz",
-                    "sha256": "8756633243c3bd7216f12fc2139736f32f18d37effe1d5b04f37340d8ed851b5",
+                    "url": "https://github.com/qpdf/qpdf/releases/download/v11.9.0/qpdf-11.9.0.tar.gz",
+                    "sha256": "9f5d6335bb7292cc24a7194d281fc77be2bbf86873e8807b85aeccfbff66082f",
                     "x-checker-data": {
                         "type": "anitya",
                         "project-id": 5542,
