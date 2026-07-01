@@ -1,0 +1,7 @@
+# Use the following command to regenerate Python modules
+# flatpak-pip-generator --runtime=org.kde.Sdk//5.15-25.08 -r requirements.txt -o python3-req --prefer-wheels=pikepdf
+
+pybind11
+pikepdf
+pillow
+fpdf2

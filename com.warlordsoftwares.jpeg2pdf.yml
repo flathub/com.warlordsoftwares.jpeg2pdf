@@ -1,15 +1,17 @@
 app-id: com.warlordsoftwares.jpeg2pdf
 runtime: org.kde.Platform
-runtime-version: 5.15-23.08
+runtime-version: 5.15-25.08
 sdk: org.kde.Sdk
 base: com.riverbankcomputing.PyQt.BaseApp
-base-version: '5.15-23.08'
+base-version: 5.15-25.08
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 build-options:
   env:
     - BASEAPP_REMOVE_WEBENGINE=1
 command: jpeg2pdf.sh
+rename-icon: icon
+rename-desktop-file: jpeg2pdf.desktop
 finish-args:
   - --share=network
   - --share=ipc
@@ -21,21 +23,22 @@ finish-args:
   - --device=dri
   - --socket=pulseaudio
 cleanup:
-  - /include
-  - /lib/pkgconfig
+  - /share/man
 modules:
-  - python3-pikepdf.json
   - python3-req.json
   - name: jpeg2pdf
     buildsystem: simple
     build-commands:
       - mkdir -p ${FLATPAK_DEST}/jpeg2pdf
       - cp -r * ${FLATPAK_DEST}/jpeg2pdf
-      - install -Dm755 ${FLATPAK_DEST}/jpeg2pdf/jpeg2pdf.sh ${FLATPAK_DEST}/bin/jpeg2pdf.sh
-      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/icons/icon.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/com.warlordsoftwares.jpeg2pdf.png
-      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/applications/jpeg2pdf.desktop ${FLATPAK_DEST}/share/applications/com.warlordsoftwares.jpeg2pdf.desktop
-      - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/com.warlordsoftwares.jpeg2pdf.desktop
-      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/metainfo/com.warlordsoftwares.jpeg2pdf.metainfo.xml ${FLATPAK_DEST}/share/metainfo/com.warlordsoftwares.jpeg2pdf.metainfo.xml
+      - install -Dm755 ${FLATPAK_DEST}/jpeg2pdf/jpeg2pdf.sh -t ${FLATPAK_DEST}/bin/
+      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/icons/icon.png -t ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/
+      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/applications/jpeg2pdf.desktop -t ${FLATPAK_DEST}/share/applications/
+      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/metainfo/${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
+    license-files:
+      - share/license/LICENSE
+    cleanup:
+      - /jpeg2pdf/share
     sources:
       - type: archive
         url: https://github.com/rishabh3354/FLATPAK_JPEG2PDF/archive/refs/tags/2024.2.1.tar.gz
