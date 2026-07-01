@@ -41,5 +41,5 @@ modules:
       - /jpeg2pdf/share
     sources:
       - type: archive
-        url: https://github.com/rishabh3354/FLATPAK_JPEG2PDF/archive/refs/tags/2024.2.1.tar.gz
-        sha256: 208cc84db66e0443acc0b62bd573449e210513c84deb19854c7542064a0792d1
+        url: https://github.com/rishabh3354/FLATPAK_JPEG2PDF/archive/refs/tags/2026.7.2.tar.gz
+        sha256: 981b83a8771c4766ee30d713f1563ef40d90d4bb64612bd8231be8dd0007fc96
