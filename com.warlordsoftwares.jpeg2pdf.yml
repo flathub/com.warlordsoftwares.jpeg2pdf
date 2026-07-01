@@ -10,8 +10,7 @@ build-options:
   env:
     - BASEAPP_REMOVE_WEBENGINE=1
 command: jpeg2pdf.sh
-rename-icon: icon
-rename-desktop-file: jpeg2pdf.desktop
+
 finish-args:
   - --share=network
   - --share=ipc
@@ -22,8 +21,10 @@ finish-args:
   - --filesystem=xdg-run/gvfsd
   - --device=dri
   - --socket=pulseaudio
+
 cleanup:
-  - /share/man
+  - /include
+  - /lib/pkgconfig
 modules:
   - python3-req.json
   - name: jpeg2pdf
@@ -31,14 +32,11 @@ modules:
     build-commands:
       - mkdir -p ${FLATPAK_DEST}/jpeg2pdf
       - cp -r * ${FLATPAK_DEST}/jpeg2pdf
-      - install -Dm755 ${FLATPAK_DEST}/jpeg2pdf/jpeg2pdf.sh -t ${FLATPAK_DEST}/bin/
-      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/icons/icon.png -t ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/
-      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/applications/jpeg2pdf.desktop -t ${FLATPAK_DEST}/share/applications/
-      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/metainfo/${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
-    license-files:
-      - share/license/LICENSE
-    cleanup:
-      - /jpeg2pdf/share
+      - install -Dm755 ${FLATPAK_DEST}/jpeg2pdf/jpeg2pdf.sh ${FLATPAK_DEST}/bin/jpeg2pdf.sh
+      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/icons/icon.png ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/com.warlordsoftwares.jpeg2pdf.png
+      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/applications/jpeg2pdf.desktop ${FLATPAK_DEST}/share/applications/com.warlordsoftwares.jpeg2pdf.desktop
+      - desktop-file-edit --set-icon=${FLATPAK_ID} ${FLATPAK_DEST}/share/applications/com.warlordsoftwares.jpeg2pdf.desktop
+      - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/metainfo/com.warlordsoftwares.jpeg2pdf.metainfo.xml ${FLATPAK_DEST}/share/metainfo/com.warlordsoftwares.jpeg2pdf.metainfo.xml
     sources:
       - type: archive
         url: https://github.com/rishabh3354/FLATPAK_JPEG2PDF/archive/refs/tags/2026.7.2.tar.gz
