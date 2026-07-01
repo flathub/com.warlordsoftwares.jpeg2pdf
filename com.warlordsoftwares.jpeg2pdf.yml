@@ -40,4 +40,4 @@ modules:
     sources:
       - type: archive
         url: https://github.com/rishabh3354/FLATPAK_JPEG2PDF/archive/refs/tags/2026.7.2.tar.gz
-        sha256: 981b83a8771c4766ee30d713f1563ef40d90d4bb64612bd8231be8dd0007fc96
+        sha256: 4d9587303ff38b1a917d85f0cc0408e3a8a3ea47e5400a5a949357d938643f32
