@@ -39,5 +39,5 @@ modules:
       - install -Dm644 ${FLATPAK_DEST}/jpeg2pdf/share/metainfo/com.warlordsoftwares.jpeg2pdf.metainfo.xml ${FLATPAK_DEST}/share/metainfo/com.warlordsoftwares.jpeg2pdf.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/rishabh3354/FLATPAK_JPEG2PDF/archive/refs/tags/2026.7.2.tar.gz
-        sha256: 4d9587303ff38b1a917d85f0cc0408e3a8a3ea47e5400a5a949357d938643f32
+        url: https://github.com/rishabh3354/FLATPAK_JPEG2PDF/archive/refs/tags/2026.10.1.tar.gz
+        sha256: b32339dca422a57438c4f81b89f0a05527e721094c3b01129bc36a294640fdea
